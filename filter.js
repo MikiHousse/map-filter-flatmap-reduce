@@ -3,6 +3,7 @@
 Array.prototype.fils = function(elem) {
     let arr = []
     for (let i = 0; i < this.length; i++) {
+      // если this с i выдает true то элемент поподает в массив arr
         if(elem(this[i]) === true) {
             arr.push(this[i])
         }
@@ -17,16 +18,25 @@ console.log(result)
 
 // Реализация метода filter с помощью рекурсии
 
-// const fils1 = (arr, callback, newArr = []) => {
-//     if (arr.length <= 0) {
-//         return newArr
-//     } else {
-//         const [item, ...isRest] = arr;
-//         const interimArray = [...newArr, callback(item)]
-//         return fils1(isRest, callback, interimArray)
-//     }
-// }
+function fills(arr, fn, output) {
+    // если 
+    output || (output = []);
+    // если массив пустой то возвращаем ответ 
+    if(!arr.length) { 
+      return output;
+    }
+    // берем 0 элемент массива и пушим его в output
+    if (fn(arr[0])) {
+      output.push(arr[0]);
+    }
+    // затем вырезаем 1 элемент у массива и запускаем цикл заного
+    return fills(arr.slice(1), fn, output);
+  }
+  
+  console.log(fills([1,2,3,4,5,6,7,8,9], function(i) { return i < 6; }));
 
-// const num1 = [1, 4, 6];
-// const result1 = fils1(num1, x => (x > 2))
-// console.log(result1)
+
+  // Реализация метода filter с помощью 
+  function fils(arr, fn, output) {
+
+  }
