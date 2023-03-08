@@ -19,7 +19,6 @@ console.log(result)
 reduce = (fn, acc, [head, ...tail]) => {
     // если head undefined то возвращаем acc , иначе возвращаем reduce и все заного 
     if (head === undefined) {
-
       return acc;
     }
     // fn запускает переданную функцию, acc плюсуется с head (0 число в массиве ) и оставляет на потом остаток массива и по кругу
